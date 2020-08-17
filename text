@@ -21,5 +21,120 @@ mov a,b >> a = b  ; size of a must equal b
                   ;cant memory to memory ; have to memory to register to memory. follow step
                     mov eax,a
                     mov b,eax
-add a,b >>a = a + b ; a is register . b is register or ตัวแปร
 call    >>call functions
+
+add a,b >>a = a + b ; a is register . b is register or ตัวแปร or memory
+ex.
+  mov eax,1 ;eax = 1
+  add eax,2 ;eax = 1+2
+sub a,b >> a = a - b
+ex.
+  mov eax,1 ; eax = 1
+  sub eax,2 ; eax = 1 -2
+neg a >> a = -a
+inc a >> a = a + 1  ;faster than add
+dec a >> a = a - 1  ;faster than sub
+shl a,b >> a = a << b shift left
+ex.
+  mov ax, 10001b  ; ax = 10001 (b is binary)
+  shl ax,1        ; ax = 00010
+  mov ax ,12345h  ; ax = 12345 (hex)
+  shl ax,4        ; ax =23450 (1 binary = 1 hex)
+shr a,b >> a = b >> b shift right
+signed is มีเครื่องหมาย
+unsigned is ไม่มีเครื่องหมาย
+movsx a,b >> a =b(signed) b is smaller than a
+ex.
+  mov bx,5 ; eax = 0005
+  movsx eax,bx  ; eax = 00000005
+---------------------------
+| ffffffff is negative    |
+---------------------------
+movzx a,b >> a = b(unsigned)
+เบสิก อินพุด เอ้าพุด
+https://pastebin.com/jYb9iaF6
+ซอสศรีราชา อาเรย์
+https://pastebin.com/BFc9fkYD
+Arrays
+byteArrays BYTE  11h,12h,13h
+wordArrays WORD  5566h,8899h
+dwordArrays DWORD 1,2,3
+string BYTE "h","e","l","l","o",0 ; "hello', 0 ; 0 is newline
+
+OFFSET ตำแหน่ง
+TYPE ขนาดarrayแต่ละช่อง
+LENGTHOF ความยางของอาเรย์
+SIZEOF ขนาดอาเรย์ทั้งหมด length * type
+
+Direct Address
+print แค่สมมุด
+print dwordArrays ; show 1
+print [dwordArrays + 4] ; show 2
+print dwordArrays[4] ; show 2
+กาก คอมพายไม่เช็คให้ ถ้า dword + 1 ก้ได้แต่ผิด จะได้ค่าขยะ บวกหนึ่งในเมมไม่ได้แปลว่าขยับไปช่องหนึ่ง
+dwordArray[2*TYPE dwordArray] ;ใช้งี้ กันพลาด
+
+Indirect operand
+.data
+  dwordArray BYTE 1,2,3,4
+.code
+ 
+ main:
+  move ecx , lengthof dwordArray    ;ecx ต้องการลูปกี่ครั้ง
+  move esi , Offset dwordArray      ;source index ตัวที่เท่าไหล่ นิยมใช่ esi กับ edi เพราะ optimize มาเพื่อส้นตีนไรอะ ถ้าก้อปปี้ก้แบบ edi = esi 
+  
+ L1:
+  mov eax , [esi] ; ต้องใส่วงเล็บ เพราะ เราต้องการค่าที่esiชี้อยู่ คล้ายๆ index = 0 array[index] = 1 ถ้าเราใช้ esi จะได้ 0 แต่[esi] = 1 เราอยากได้ 1
+  call print      ; show eax
+  add esi , Type dwordArray   ; ขยับไปตัวถัดไป
+  loop L1 ;กลับไปลูปใหม่่ โดย จะลด ecx -= 1 อัตโนมัติ จน 0 จึงจลลูป ; jmp l1
+  
+  exit จบโปรแกรม
+  
+Index operand
+main:
+  move ecx , lengthof dwordArray    ;ecx ต้องการลูปกี่ครั้ง
+  move esi , 0       
+  
+ L1:
+  mov eax , [2*TYPE dwordArray]
+  call print      ; show eax
+  inc esi
+  loop L1 ;กลับไปลูปใหม่่ โดย จะลด ecx -= 1 อัตโนมัติ จน 0 จึงจลลูป ; jmp l1
+
+Condition
+  cmp ;compare
+  jmp jump to dis-ti-na-tion
+  condition jump
+  jump flags
+  JZ zf =1    | JNZ zf =0
+  JC cf =1    | JNC cf =0
+  JO of =1    | JNO of =0
+  JS sf =1    | JNS sf =0
+  JP pf =1    | JNP pf =0
+  
+  unsigned
+  cmp eax,ebx
+  JA L1; eax>ebx ;jump to L1
+  JB eax<ebx
+  JE eax=ebx ; JE = JZ ;zf =1
+  JAE eax>=ebx
+  JBE eax<=ebx
+  JN___
+  signed
+  JG eax>ebx
+  JL eax<ebx
+  JE eax = ebx
+  JGE eax>=ebx
+  JLE eax<=ebx
+  
+  source code condition 
+  https://gist.github.com/anonymous/3787684
+  
+  binary ดูหลักสุดท้ายบอก 0 = odd 1 = even
+  
+  
+
+
+
+

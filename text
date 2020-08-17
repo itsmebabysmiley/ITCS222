@@ -1,0 +1,25 @@
+general register
+eax, ebx, ecx, edx  >>32 bits
+
+eax บวกลบเลข
+ecx นับลูป
+------char------
+byte
+sbyte
+-------int tubo c---------
+word
+sword
+--------int java--------
+dword
+sdword
+------------------------------
+
+mov a,b >> a = b  ; size of a must equal b
+                  ; register to register
+                  ; memory to register
+                  ;register to memory
+                  ;cant memory to memory ; have to memory to register to memory. follow step
+                    mov eax,a
+                    mov b,eax
+add a,b >>a = a + b ; a is register . b is register or ตัวแปร
+call    >>call functions

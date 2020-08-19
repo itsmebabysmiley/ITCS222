@@ -121,14 +121,19 @@ Condition
   JE eax=ebx ; JE = JZ ;zf =1
   JAE eax>=ebx
   JBE eax<=ebx
-  JN___
+  JN___ <jump not ....>
   signed
   JG eax>ebx
   JL eax<ebx
   JE eax = ebx
   JGE eax>=ebx
   JLE eax<=ebx
-  
+  ex. find max 2 and 5
+    mov eax, 2        ; eax = 2
+    cmp eax, 5        ;
+    jg  <...>         ; if eax > 5  jump to dis-ti-na-tion
+    mov [max],eax  ; else max = eax ; max = 5
+    
   source code condition 
   https://gist.github.com/anonymous/3787684
   

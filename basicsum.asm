@@ -46,18 +46,11 @@ _asm_main:
         call    read_int          ; input third number
         mov     [input3],eax
 
-
         ;sum
         mov eax,[input1]          ;eax = input1
         add eax,[input2]          ;eax = eax + input2
         add eax,[input3]          ;eax = eax + input3
         mov [sum],eax             ;store eax into sum
-
-        ;divide in integer(floating number https://en.wikibooks.org/wiki/X86_Assembly/Floating_Point)
-        ;mov al,[input1]
-        ;mov bl,3
-        ;div bl
-        ;mov [result],ax
 
         mov     eax, message4     ; print message " The result is: "
         call    print_string    

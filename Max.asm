@@ -1,5 +1,5 @@
 ; How to complie this .asm file to .exe?
-; copy just.asm to NASM folder.
+; copy <Max.asm> file to NASM folder.
 ; open cmd cd to NASM folder.
 ; type >>> nasm -f obj Max.asm && bcc32 Max.obj driver.obj asm_io.obj && Max
 %include "asm_io.inc"

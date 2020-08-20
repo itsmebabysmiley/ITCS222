@@ -39,7 +39,7 @@ _asm_main:
         call    print_int
         call    print_nl
 
-        ;divide
+        ;can divide only integer (floating-number format -> 'https://en.wikibooks.org/wiki/X86_Assembly/Floating_Point')
         mov al,[input1]
         mov bl,3
         div bl

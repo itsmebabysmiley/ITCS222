@@ -1,0 +1,48 @@
+.data
+	a dw ?
+	b dw ?
+
+.main
+
+gcd:
+	mov eax, a		; eax = a
+	cmp eax, 0		
+	jne L1			; if a != 0 jump to L1
+
+	mov ebx, b		; ebx = b
+	cmp ebx, 0
+	jne L1			; if b != 0 jump to L1
+
+	mov ebx,1		; ebx = 1
+	mov b,ebx		; b = 1
+	ret
+
+L1:
+	mov ebx,b	
+	cmp ebx,0
+	jne L2			; if b != 0 jump to L2
+	
+	mov b,eax		; b = a
+	ret
+
+L2:
+	mov eax,a
+	cmp eax,0
+	je  end			; if a == 0 jump to end
+	
+while:
+	cmp eax,ebx		; eax = a, ebx = b
+	je 	end			; while(a != b)
+
+	cmp eax, ebx
+	jg	else		; if a>b
+	sub ebx, eax	; b = b-a
+	jmp while		; go back to while loop
+
+
+else:
+	sub eax,ebx		; a = a-b
+	jmp while		; go back to while loop
+
+end:
+	ret

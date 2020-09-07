@@ -13,6 +13,14 @@ sword
 dword
 sdword
 ------------------------------
+-----------------------------------------
+flags     name        1         0
+cf    carry flag    carry     no carry
+pf    parity flag   even      odd
+zf    zero flag     zero      non zero
+sf    sign flag     negative  positive
+of    overflow      overflow  not overflow
+-------------------------------------------
 
 mov a,b >> a = b  ; size of a must equal b
                   ; register to register

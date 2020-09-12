@@ -1,13 +1,13 @@
 # Assembly
 ## [Read my text](https://github.com/itsmebabysmiley/Assembly/blob/master/text)
-ref:\
+ref:
 * http://pacman128.github.io/pcasm/  
-* https://cs.lmu.edu/~ray/notes/nasmtutorial/
+* https://cs.lmu.edu/~ray/notes/nasmtutorial/  
 Could you please create beautiful readme for my resp?
 # ALL YOU NEED IN COM ARCH 
 ***
 ## general register 
-EAX ECX EDX EBX ESP EBP ESI EDI  >>32 bits\  
+EAX ECX EDX EBX ESP EBP ESI EDI  >>32 bits\
 AX  CX  DX  BX  SP  BP  SI  DI >>16 nits\
 AL  CL  DL  BL  SPL BPL SIL DIL >>8 bits
 ***
@@ -48,9 +48,9 @@ mov a,b >> a = b\
 &nbsp;&nbsp;-register to register\
 &nbsp;&nbsp;-memory to register\
 &nbsp;&nbsp;-register to memory\
-&nbsp;&nbsp;-can't move memory to memory. For example you want to do a = b\
-###### &nbsp;&nbsp;&nbsp;&nbsp; ~~mov a, b ~~
-#### &nbsp;&nbsp;-You have to do this.\
+&nbsp;&nbsp;-can't move memory to memory. For example you want to do a = b
+###### &nbsp;&nbsp;&nbsp;&nbsp; ~~mov a, b~~
+#### &nbsp;&nbsp;-You have to do this.
 &nbsp;&nbsp;&nbsp;&nbsp;```mov eax, a```
 &nbsp;&nbsp;&nbsp;&nbsp;```mov b, eax ```
          

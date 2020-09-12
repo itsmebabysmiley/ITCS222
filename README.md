@@ -12,9 +12,6 @@ AX  CX  DX  BX  SP  BP  SI  DI >>16 nits\
 AL  CL  DL  BL  SPL BPL SIL DIL >>8 bits
 ***
 
-| sign | unsign |
-|------|-------:|
-|มีเครื่องหมาย|ไม่มีเครื่องหมาย|
 
 ## Data type  
 ### 1. char  
@@ -31,7 +28,12 @@ AL  CL  DL  BL  SPL BPL SIL DIL >>8 bits
 &nbsp;&nbsp;-qword(8 bytes)  
 &nbsp;&nbsp;-tbyte(10 bytes)  
 ***
-## common flags
+## Signed and Unsigned
+| signed | unsigned |
+|------|-------:|
+|มีเครื่องหมาย|ไม่มีเครื่องหมาย|
+***
+## Common flags
 |flags |     name    |    1       |   0          |
 |------|:-----------:|:----------:|:------------:|
 |cf    | carry flag  |  carry     | no carry     |
@@ -40,7 +42,7 @@ AL  CL  DL  BL  SPL BPL SIL DIL >>8 bits
 |sf    | sign flag   |  negative  | positive     |     
 |of    | overflow    |  overflow  | not overflow |         
 ***
-## common command
+## Common command
 ### 1. mov  
 mov a,b >> a = b\
 **condition is**  
@@ -81,6 +83,7 @@ ex.
 ### 7.dec decease (i--)
 &nbsp;&nbsp;-faster than sub.\
 ```dec a ;a = a - 1```
+#### If you don't under stand mutiply and divide.[LOOK AT HERE](https://www.csie.ntu.edu.tw/~acpang/course/asm_2004/slides/chapt_07_PartIISolve.pdf)
 ### 8. multiply
 ```
   mul a ;unsinged

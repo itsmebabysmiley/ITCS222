@@ -9,7 +9,7 @@ ref:
 ***
 ## general register 
 EAX ECX EDX EBX ESP EBP ESI EDI  >>32 bits\
-AX  CX  DX  BX  SP  BP  SI  DI >>16 nits\
+AX  CX  DX  BX  SP  BP  SI  DI >>16 bits\
 AL  CL  DL  BL  SPL BPL SIL DIL >>8 bits
 ***
 

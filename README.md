@@ -238,39 +238,5 @@ cmp eax,ebx\
 *  https://gist.github.com/anonymous/3787684
   
 **#### binary ดูหลักสุดท้ายบอก 0 = odd 1 = even
- 
-## multiply
-  mul a ;unsinged
-  imul a; singed
-  ขนาด | ตัวตั้ง | ผลลัพเก้บ เป้นสองเท่า
-    8     AL      AH:AL  = AX ; 8 bits ล่างเก็บ al 8 bits บนเก้บ ah
-    16    AX      DX:AX
-    32    EAX     EDX:EAX
-   ex. 2*3
-      mov al,2
-      mov bl,3
-      mul bl
-            al = 6 ; ah = 0 ignore มัน
-## devide
-  div a ;unsigned
-  idiv a;signed
-  -------------------------------
-   ขนาด | ตัวตั้ง | ผลลัพ  | เศษ
-    8     AX      AL       AH 
-    16    DX:AX   AX       DX
-    32    EDX:EAX EAX      EDX     
-  
-  ขยายเมม singed
-  cbw (convert btye to word) : al -> ax
-  cwd (convert word to dword): ax -> dx:ax
-  cdq convert dword to qword): eax-> edx:eax
-  ex. 16/3 assume 16 and 3 are singed
-    mov al,16
-    cbw
-    mov bl,3
-    idiv bl       16/3 = 5 r 1
-        al = 5 ; เก็บผลลัพไว้ al
-        ah = 1 ; เก็บเศษไว้ใน ah
-  ***
 ## Maybe useful
 ### ffffffff is negative

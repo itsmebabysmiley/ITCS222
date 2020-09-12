@@ -1,14 +1,15 @@
 # Assembly
 ## [Read my text](https://github.com/itsmebabysmiley/Assembly/blob/master/text)
-ref:
-http://pacman128.github.io/pcasm/  
+ref:\
+* http://pacman128.github.io/pcasm/  
+* https://cs.lmu.edu/~ray/notes/nasmtutorial/
 Could you please create beautiful readme for my resp?
-<mark># ALL YOU NEED IN COM ARCH </mark>
+# ALL YOU NEED IN COM ARCH 
 ***
 ## general register 
-eax, ebx, ecx, edx  >>32 bits  
-&nbsp;&nbsp;-eax บวกลบเลข  
-&nbsp;&nbsp;-ecx นับลูป  
+EAX ECX EDX EBX ESP EBP ESI EDI  >>32 bits\  
+AX  CX  DX  BX  SP  BP  SI  DI >>16 nits\
+AL  CL  DL  BL  SPL BPL SIL DIL >>8 bits
 ***
 
 | sign | unsign |
@@ -87,7 +88,7 @@ ex.
 ```
   |ขนาด | ตัวตั้ง | ผลลัพเก้บเป้นขนาดสองเท่า|
   |-----|:-----:|--------------------:|
-  |  8  |   AL  |     AH:AL  = AX ; 8 bits ล่างเก็บ al 8 bits บนเก้บ ah |
+  |  8  |   AL  |     AX|
   |  16 |   AX  |    DX:AX   |
   |  32 |   EAX |    EDX:EAX |
    ex. 2*3
@@ -108,19 +109,19 @@ ex.
    | 8   |  AX   |   AL  |     AH | 
    | 16  |  DX:AX |  AX  |     DX |
    | 32  |  EDX:EAX| EAX |     EDX |    
- ขยายเมม singed
-  cbw (convert btye to word) : al -> ax\
-  cwd (convert word to dword): ax -> dx:ax\
-  cdq convert dword to qword): eax-> edx:eax\
+
   ex. 16/3 assume 16 and 3 are singed
   ```
     mov al,16
-    cbw
     mov bl,3
-    idiv bl       16/3 = 5 r 1
+    div bl       16/3 = 5 r 1
         al = 5 ; เก็บผลลัพไว้ al
         ah = 1 ; เก็บเศษไว้ใน ah
  ```
+  ขยายเมม singed
+  cbw (convert btye to word) : al -> ax\
+  cwd (convert word to dword): ax -> dx:ax\
+  cdq convert dword to qword): eax-> edx:eax\
 ### 10.shl(shift left)
 ```shl a,b```
 ex.

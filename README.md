@@ -5,7 +5,7 @@ ref:
 * https://cs.lmu.edu/~ray/notes/nasmtutorial/  
 * https://www.csie.ntu.edu.tw/~acpang/course/asm_2004/slides/chapt_07_PartIISolve.pdf
 ***
-**### You can download pcasm with example code.[click](http://pacman128.github.io/pcasm/)
+### You can download pcasm with example code.[click](http://pacman128.github.io/pcasm/)
 ***
 # ALL YOU NEED IN COM ARCH 
 ***
@@ -251,6 +251,6 @@ cmp eax,ebx\
 [source code condition](https://gist.github.com/anonymous/3787684)
 *  https://gist.github.com/anonymous/3787684
   
-**#### binary ดูหลักสุดท้ายบอก 0 = odd 1 = even
+#### binary ดูหลักสุดท้ายบอก 0 = odd 1 = even
 ## Maybe useful
 ### ffffffff is negative

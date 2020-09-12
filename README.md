@@ -7,23 +7,23 @@ Could you please create beautiful readme for my resp?
 ***
 ## general register 
 eax, ebx, ecx, edx  >>32 bits  
-    -eax บวกลบเลข  
-    -ecx นับลูป  
+&nbsp;&nbsp;-eax บวกลบเลข  
+&nbsp;&nbsp;-ecx นับลูป  
 ***
 ## Data type  
 ### 1. char  
-   -byte(1 bytes / 8 bits)  
-   -sbyte(signed byte)  
+&nbsp;&nbsp;-byte(1 bytes / 8 bits)  
+&nbsp;&nbsp;-sbyte(signed byte)  
 ### 2. int(turbo c)  
-   -word(2 bytes / 16bits)  
-   -sword(signed word)  
+&nbsp;&nbsp;-word(2 bytes / 16bits)  
+&nbsp;&nbsp;-sword(signed word)  
 ### 3. int(java)  
-   -dword(4 bytes / 32 bits)    
-   -sdword(signed dword)  
+&nbsp;&nbsp;-dword(4 bytes / 32 bits)    
+&nbsp;&nbsp;-sdword(signed dword)  
 ### 4. other
-   -fword(6 bytes)  
-   -qword(8 bytes)  
-   -tbyte(10 bytes)  
+&nbsp;&nbsp;-fword(6 bytes)  
+&nbsp;&nbsp;-qword(8 bytes)  
+&nbsp;&nbsp;-tbyte(10 bytes)  
 ***
 ## common flags
 |flags |     name    |    1       |   0          |
@@ -38,14 +38,15 @@ eax, ebx, ecx, edx  >>32 bits
 ### 1. mov  
 mov a,b >> a = b\
 **condition is**  
-   -size of a must equal b\
-   -register to register\
-   -memory to register\
-   -register to memory\
-   -can't move memory to memory\
-      -for example, you want to a = b\
-         ```mov eax,a```\
-         ```mov b,eax ```
+&nbsp;&nbsp;-size of a must equal b\
+&nbsp;&nbsp;-register to register\
+&nbsp;&nbsp;-memory to register\
+&nbsp;&nbsp;-register to memory\
+&nbsp;&nbsp;-can't move memory to memory. For example you want to do a = b\
+&nbsp;&nbsp;&nbsp;&nbsp; ```mov a,b``` \
+#### &nbsp;&nbsp;-You have to do this.\
+&nbsp;&nbsp;&nbsp;&nbsp;```mov eax,a```\
+&nbsp;&nbsp;&nbsp;&nbsp;```mov b,eax ```
          
 $ call
 call    >>call functions

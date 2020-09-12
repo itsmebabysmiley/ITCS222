@@ -39,7 +39,7 @@ _asm_main:
         mov al,[input1]
         mov bl,[input2]
         div bl                    ; al/bl
-        mov [result1],ax
+        mov [result1],ax          ; result will be in ax or al. remainder will be in ah
 
         mov     eax, result       ; print message " The result is: "
         call    print_string

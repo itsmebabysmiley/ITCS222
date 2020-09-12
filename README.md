@@ -3,7 +3,8 @@
 ref:
 * http://pacman128.github.io/pcasm/  
 * https://cs.lmu.edu/~ray/notes/nasmtutorial/  
-Could you please create beautiful readme for my resp?
+* https://www.csie.ntu.edu.tw/~acpang/course/asm_2004/slides/chapt_07_PartIISolve.pdf
+
 # ALL YOU NEED IN COM ARCH 
 ***
 ## general register 

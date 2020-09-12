@@ -10,6 +10,11 @@ eax, ebx, ecx, edx  >>32 bits
 &nbsp;&nbsp;-eax บวกลบเลข  
 &nbsp;&nbsp;-ecx นับลูป  
 ***
+
+| sign | unsign |
+|------|-------:|
+|มีเครื่องหมาย|ไม่มีเครื่องหมาย|
+
 ## Data type  
 ### 1. char  
 &nbsp;&nbsp;-byte(1 bytes / 8 bits)  
@@ -43,86 +48,130 @@ mov a,b >> a = b\
 &nbsp;&nbsp;-memory to register\
 &nbsp;&nbsp;-register to memory\
 &nbsp;&nbsp;-can't move memory to memory. For example you want to do a = b\
-&nbsp;&nbsp;&nbsp;&nbsp; ```mov a,b``` \
+###### &nbsp;&nbsp;&nbsp;&nbsp; ~~mov a, b ~~
 #### &nbsp;&nbsp;-You have to do this.\
-&nbsp;&nbsp;&nbsp;&nbsp;```mov eax,a```\
-&nbsp;&nbsp;&nbsp;&nbsp;```mov b,eax ```
+&nbsp;&nbsp;&nbsp;&nbsp;```mov eax, a```
+&nbsp;&nbsp;&nbsp;&nbsp;```mov b, eax ```
          
-$ call
-call    >>call functions
+### 2. call
+&nbsp;&nbsp;-is use to call functions.
 
-$ add addition
-add a,b >>a = a + b ; a is register . b is register or ตัวแปร or memory
+### 3. add(addition)
+add a,b >> a = a + b\
+&nbsp;&nbsp;-a is register.\
+&nbsp;&nbsp;-b is register or ตัวแปร or memory\
 ex.
-  mov eax,1 ;eax = 1
-  add eax,2 ;eax = 1+2
-
-$ sub subtraction
-sub a,b >> a = a - b
+```
+  mov eax, 1 ;eax = 1
+  add eax, 2 ;eax = 1+2
+```
+### 4. sub(subtraction)
+sub a,b >> a = a - b\
 ex.
-  mov eax,1 ; eax = 1
-  sub eax,2 ; eax = 1 -2
+```
+  mov eax, 1 ; eax = 1
+  sub eax, 2 ; eax = 1-2
+```
+### 5. neg(negative)
+```neg a ;a = -a```
+### 6.inc increase (i++)
+&nbsp;&nbsp;-faster than add.\
+```inc a ;a = a + 1```
+### 7.dec decease (i--)
+&nbsp;&nbsp;-faster than sub.\
+```dec a ;a = a - 1```
+### 8. multiply
+```
+  mul a ;unsinged
+  imul a; singed
+```
+  |ขนาด | ตัวตั้ง | ผลลัพเก้บเป้นขนาดสองเท่า|
+  |-----|:-----:|--------------------:|
+  |  8  |   AL  |     AH:AL  = AX ; 8 bits ล่างเก็บ al 8 bits บนเก้บ ah |
+  |  16 |   AX  |    DX:AX   |
+  |  32 |   EAX |    EDX:EAX |
+   ex. 2*3
+   ```
+      mov al,2
+      mov bl,3
+      mul bl
+            al = 6 ; ah = 0 ignore มัน
+   ```
+### 9. divide
+```
+  div a ;unsigned
+  idiv a;signed
+```
   
-$ neg negative
-neg a >> a = -a
-$ inc increase (i++)
-inc a >> a = a + 1  ;faster than add
-$ dec decease (i--)
-dec a >> a = a - 1  ;faster than sub
-$ shl shift left
-shl a,b >> a = a << b shift left
+   |ขนาด | ตัวตั้ง | ผลลัพ  | เศษ|
+   |-----|:-----:|:------:|-------:|
+   | 8   |  AX   |   AL  |     AH | 
+   | 16  |  DX:AX |  AX  |     DX |
+   | 32  |  EDX:EAX| EAX |     EDX |    
+ ขยายเมม singed
+  cbw (convert btye to word) : al -> ax\
+  cwd (convert word to dword): ax -> dx:ax\
+  cdq convert dword to qword): eax-> edx:eax\
+  ex. 16/3 assume 16 and 3 are singed
+  ```
+    mov al,16
+    cbw
+    mov bl,3
+    idiv bl       16/3 = 5 r 1
+        al = 5 ; เก็บผลลัพไว้ al
+        ah = 1 ; เก็บเศษไว้ใน ah
+ ```
+### 10.shl(shift left)
+```shl a,b```
 ex.
+```
   mov ax, 10001b  ; ax = 10001 (b is binary)
   shl ax,1        ; ax = 00010
   mov ax ,12345h  ; ax = 12345 (hex)
   shl ax,4        ; ax =23450 (1 binary = 1 hex)
-$ shr shift right
-shr a,b >> a = b >> b shift right
---------------------------------
-| signed is มีเครื่องหมาย          |
-| unsigned is ไม่มีเครื่องหมาย      |
---------------------------------
-$ movsx
-movsx a,b >> a = b(signed) b is smaller than a
+```
+### 11.shr(shift right)
+```shr a,b```
+### 12. movsx
+movsx a,b >> a = b(signed) b is smaller than a\
 ex.
+```
   mov bx,5 ; eax = 0005
   movsx eax,bx  ; eax = 00000005
-  
----------------------------
-| ffffffff is negative    |
----------------------------
+```
+### 13. movzx
+```movzx a,b ;a = b(unsigned)```
 
-$ movzx
-movzx a,b >> a = b(unsigned)
-
-***********เบสิก อินพุด เอ้าพุด***********
-*   https://pastebin.com/jYb9iaF6   
-*************************************
-***********ซอสศรีราชา อาเรย์***********
-* https://pastebin.com/BFc9fkYD     
-************************************
+#### [Basic imput output](https://pastebin.com/jYb9iaF6)    
+* https://pastebin.com/jYb9iaF6
+#### [Arrays example](https://pastebin.com/BFc9fkYD)     
+* https://pastebin.com/BFc9fkYD
+***
 
 ## Arrays
-$ how to create array?
-byteArrays BYTE  11h,12h,13h  >>heximal array
-wordArrays WORD  5566h,8899h  >>heximal array
-dwordArrays DWORD 1,2,3       >>integer array
-string BYTE "h","e","l","l","o",0 ; "hello', 0 ; 0 is newline  >>string array
+| keyword|meaning|
+|--------|----:|
+| OFFSET |ตำแหน่ง|
+| TYPE |ขนาดarrayแต่ละช่อง|
+| LENGTHOF |ความยางของอาเรย์|
+| SIZEOF |ขนาดอาเรย์ทั้งหมด length * type|
+### how to create array?
+```byteArrays BYTE  11h,12h,13h```           >>heximal array\
+```wordArrays WORD  5566h,8899h```           >>heximal array\
+```dwordArrays DWORD 1,2,3```                >>integer array\
+```string BYTE "h","e","l","l","o",0 ```     >>string array\
+```string BYTE "hello', 0 ```                >>0 is newline\  
 
-OFFSET ตำแหน่ง
-TYPE ขนาดarrayแต่ละช่อง
-LENGTHOF ความยางของอาเรย์
-SIZEOF ขนาดอาเรย์ทั้งหมด length * type
+### Direct Address
+**print แค่สมมุด**\
+```print dwordArrays```  >>show 1\
+```print [dwordArrays + 4]``` >>show 2(size of dword is 4 bytes) \
+```print dwordArrays[4]``` >>show 2(It similar to index at 2)\
+**กาก คอมพายไม่เช็คให้ ถ้า dword + 1 ก้ได้แต่ผิด จะได้ค่าขยะ บวกหนึ่งในเมมไม่ได้แปลว่าขยับไปช่องหนึ่ง**\
+**### dwordArray[2*TYPE dwordArray] ;ใช้งี้ กันพลาด**\
 
-$ Direct Address
-print แค่สมมุด
-print dwordArrays ; show 1
-print [dwordArrays + 4] ; show 2
-print dwordArrays[4] ; show 2
-กาก คอมพายไม่เช็คให้ ถ้า dword + 1 ก้ได้แต่ผิด จะได้ค่าขยะ บวกหนึ่งในเมมไม่ได้แปลว่าขยับไปช่องหนึ่ง
-dwordArray[2*TYPE dwordArray] ;ใช้งี้ กันพลาด
-
-$ Indirect operand
+### Indirect operand
+```
 .data
   dwordArray BYTE 1,2,3,4
 .code
@@ -138,8 +187,9 @@ $ Indirect operand
   loop L1 ;กลับไปลูปใหม่่ โดย จะลด ecx -= 1 อัตโนมัติ จน 0 จึงจลลูป ; jmp l1
   
   exit จบโปรแกรม
-  
-$ Index operand
+```  
+### Index operand
+```
 main:
   move ecx , lengthof dwordArray    ;ecx ต้องการลูปกี่ครั้ง
   move esi , 0       
@@ -149,45 +199,44 @@ main:
   call print      ; show eax
   inc esi
   loop L1 ;กลับไปลูปใหม่่ โดย จะลด ecx -= 1 อัตโนมัติ จน 0 จึงจลลูป ; jmp l1
-
-## Condition if else
-  cmp ;compare
-  jmp jump to dis-ti-na-tion
-  *****flags เขาสอนแหละ แต่กุลืม*****
-  $ condition jump
-  jump flags
-  JZ zf =1    | JNZ zf =0
-  JC cf =1    | JNC cf =0
-  JO of =1    | JNO of =0
-  JS sf =1    | JNS sf =0
-  JP pf =1    | JNP pf =0
+```
+### Condition
+&nbsp;&nbsp;cmp >> compare\
+&nbsp;&nbsp;jmp >> jump to dis-ti-na-tion
+  #### Condition jump
+  | Jump flags  | Jump flags|
+  |-------------|----------:|
+  | JZ zf =1    | JNZ zf =0 |
+  | JC cf =1    | JNC cf =0 |
+  | JO of =1    | JNO of =0 |
+  | JS sf =1    | JNS sf =0 |
+  | JP pf =1    | JNP pf =0 |
   
-  $ unsigned
-  cmp eax,ebx
-  JA L1; eax>ebx ;jump to L1
-  JB eax<ebx
-  JE eax=ebx ; JE = JZ ;zf =1
-  JAE eax>=ebx
-  JBE eax<=ebx
-  JN___ <jump not ....>
-  
-  $signed
-  JG eax>ebx
-  JL eax<ebx
-  JE eax = ebx
-  JGE eax>=ebx
-  JLE eax<=ebx
+### Compare unsigned
+cmp eax,ebx\
+&nbsp;&nbsp;&nbsp;&nbsp;JA L1; eax>ebx ;jump to L1\
+&nbsp;&nbsp;&nbsp;&nbsp;JB eax<ebx\
+&nbsp;&nbsp;&nbsp;&nbsp;JE eax=ebx ; JE = JZ ;zf =1\
+&nbsp;&nbsp;&nbsp;&nbsp;JAE eax>=ebx\
+&nbsp;&nbsp;&nbsp;&nbsp;JBE eax<=ebx\
+&nbsp;&nbsp;&nbsp;&nbsp;JN___ <jump not ....>
+### Compare signed
+&nbsp;&nbsp;&nbsp;&nbsp;JG eax>ebx\
+&nbsp;&nbsp;&nbsp;&nbsp;JL eax<ebx\
+&nbsp;&nbsp;&nbsp;&nbsp;JE eax = ebx\
+&nbsp;&nbsp;&nbsp;&nbsp;JGE eax>=ebx\
+&nbsp;&nbsp;&nbsp;&nbsp;JLE eax<=ebx\
   ex. find max 2 and 5
+ ```                                    
     mov eax, 2        ; eax = 2
     cmp eax, 5        ;
     jg  <...>         ; if eax > 5  jump to dis-ti-na-tion
     mov [max],eax  ; else max = eax ; max = 5
-    
-***********source code condition*************
+```    
+[source code condition](https://gist.github.com/anonymous/3787684)
 *  https://gist.github.com/anonymous/3787684
-*********************************************
   
-  binary ดูหลักสุดท้ายบอก 0 = odd 1 = even
+**#### binary ดูหลักสุดท้ายบอก 0 = odd 1 = even
  
 ## multiply
   mul a ;unsinged
@@ -221,3 +270,6 @@ main:
     idiv bl       16/3 = 5 r 1
         al = 5 ; เก็บผลลัพไว้ al
         ah = 1 ; เก็บเศษไว้ใน ah
+  ***
+## Maybe useful
+### ffffffff is negative

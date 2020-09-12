@@ -125,6 +125,14 @@ ex.
   cbw (convert btye to word) : al -> ax\
   cwd (convert word to dword): ax -> dx:ax\
   cdq convert dword to qword): eax-> edx:eax\
+  ```
+    mov al,16
+    cbw
+    mov bl,3
+    idiv bl       16/3 = 5 r 1
+        al = 5 ; เก็บผลลัพไว้ al
+        ah = 1 ; เก็บเศษไว้ใน ah
+ ```
 ### 10.shl(shift left)
 ```shl a,b```
 ex.

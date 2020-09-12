@@ -8,16 +8,13 @@ segment _DATA public align=4 class=DATA use32
 
 message1 db "Enter 1st number: ",0
 message2 db "Enter 2nd number: ", 0
-message3 db "Enter 3rd number: ", 0
-number1  db "1st number is: ",0
-number2  db "2nd number is: ",0
-number3  db "3rd number is: ",0
 result   db "The result is: ",0
 
 
 segment _BSS public align=4 class=BSS use32
 
 input1	 resd    1              ; first number entered
+input2   resd    1
 result1  resd    0
 
 group DGROUP _BSS _DATA
@@ -33,19 +30,18 @@ _asm_main:
         call    read_int          ; input first number
         mov     [input1], eax
 
-        mov     eax, number1     ; print message " The result is: "
+        mov     eax, message2     ; print out second message
         call    print_string
-        mov     eax,[input1]
-        call    print_int
-        call    print_nl
+        call    read_int          ; input second number
+        mov     [input2], eax
 
         ;can divide only integer (floating-number format -> 'https://en.wikibooks.org/wiki/X86_Assembly/Floating_Point')
         mov al,[input1]
-        mov bl,3
-        div bl
+        mov bl,[input2]
+        div bl                    ; al/bl
         mov [result1],ax
 
-        mov     eax, result     ; print message " The result is: "
+        mov     eax, result       ; print message " The result is: "
         call    print_string
         mov     eax,[result1]
         call    print_int

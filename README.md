@@ -1,5 +1,5 @@
 # Assembly
-## [Read my text](https://github.com/itsmebabysmiley/Assembly/blob/master/text)
+## [Read my text](https://github.com/itsmebabysmiley/Assembly/blob/master/Readme)
 ref:
 * http://pacman128.github.io/pcasm/  
 * https://cs.lmu.edu/~ray/notes/nasmtutorial/  

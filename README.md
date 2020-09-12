@@ -85,7 +85,7 @@ ex.
 &nbsp;&nbsp;-faster than sub.\
 ```dec a ;a = a - 1```
 #### If you don't under stand mutiply and divide.[LOOK AT HERE](https://www.csie.ntu.edu.tw/~acpang/course/asm_2004/slides/chapt_07_PartIISolve.pdf)
-### 8. multiply[Click to source code](https://github.com/itsmebabysmiley/Assembly/blob/master/mutiply.asm)
+### 8. multiply[Click to source code](https://github.com/itsmebabysmiley/Assembly/blob/master/multipy.asm)
 ```
   mul a ;unsinged
   imul a; singed

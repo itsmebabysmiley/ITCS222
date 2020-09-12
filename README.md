@@ -1,45 +1,52 @@
 # Assembly
 ## [Read my text](https://github.com/itsmebabysmiley/Assembly/blob/master/text)
 ref:
-http://pacman128.github.io/pcasm/
+http://pacman128.github.io/pcasm/  
 Could you please create beautiful readme for my resp?
 <mark># ALL YOU NEED IN COM ARCH </mark>
-## general register
-eax, ebx, ecx, edx  >>32 bits
-
-eax บวกลบเลข
-ecx นับลูป
-------char------
-byte(1 bytes / 8 bits)
-sbyte
--------int tubo c---------
-word(2 bytes / 16bits)
-sword
---------int java--------
-dword(4 bytes / 32 bits)
-sdword
-------------------------------
-fword(6 bytes)
-qword(8 bytes)
-tbyte(10 bytes)
-
+***
+## general register 
+eax, ebx, ecx, edx  >>32 bits  
+    -eax บวกลบเลข  
+    -ecx นับลูป  
+***
+## Data type  
+### 1. char  
+   -byte(1 bytes / 8 bits)  
+   -sbyte(signed byte)  
+### 2. int(turbo c)  
+   -word(2 bytes / 16bits)  
+   -sword(signed word)  
+### 3. int(java)  
+   -dword(4 bytes / 32 bits)    
+   -sdword(signed dword)  
+### 4. other
+   -fword(6 bytes)  
+   -qword(8 bytes)  
+   -tbyte(10 bytes)  
+***
 ## common flags
------------------------------------------
-flags     name        1         0
-cf    carry flag    carry     no carry
-pf    parity flag   even      odd
-zf    zero flag     zero      non zero
-sf    sign flag     negative  positive
-of    overflow      overflow  not overflow
--------------------------------------------
-$ mov
-mov a,b >> a = b  ; size of a must equal b
-                  ; register to register
-                  ; memory to register
-                  ;register to memory
-                  ;cant memory to memory ; have to memory to register to memory. follow step
-                    mov eax,a
-                    mov b,eax
+|flags |     name    |    1       |   0          |
+|------|:-----------:|:----------:|:------------:|
+|cf    | carry flag  |  carry     | no carry     |
+|pf    | parity flag |  even      | odd          |
+|zf    | zero flag   |  zero      | non zero     |     
+|sf    | sign flag   |  negative  | positive     |     
+|of    | overflow    |  overflow  | not overflow |         
+***
+## common command
+### 1. mov  
+mov a,b >> a = b\
+**condition is**  
+   -size of a must equal b\
+   -register to register\
+   -memory to register\
+   -register to memory\
+   -can't move memory to memory\
+      -for example, you want to a = b\
+         ```mov eax,a```\
+         ```mov b,eax ```
+         
 $ call
 call    >>call functions
 

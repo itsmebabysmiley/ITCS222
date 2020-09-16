@@ -40,7 +40,7 @@ _asm_main:
         mov bl,[input2]
         div bl                    ; al/bl
         mov [result1],ax          ; result will be in ax or al. remainder will be in ah
-
+        
         mov     eax, result       ; print message " The result is: "
         call    print_string
         mov     eax,[result1]
@@ -53,3 +53,9 @@ _asm_main:
         mov     eax, 0            ; return back to C
         leave                     
         ret
+        ; 32 bits
+        ;mov edx,0                 ; 32 bits or maybe more have to clear register. if edx has random garbage in it, you'll get garbage results.
+        ;mov eax,[input1]
+        ;mov ebx,[input2]
+        ;div bl                    ; al/bl
+        ;mov [result1],ax          ; result will be in ax or al. remainder will be in ah

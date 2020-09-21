@@ -42,7 +42,7 @@ AL  CL  DL  BL  SPL BPL SIL DIL >>8 bits
 |flags |     name    |    1       |   0          |    แปล      |
 |------|:-----------:|:----------:|:------------:|:-----------:|
 |cf    | carry flag  |  carry     | no carry     |  ใช้กับ unsigned |
-|pf    | parity flag |  even      | odd          | เช็ค4ตัวสุดท้าย ว่าเลข1มีจำนวนคู่หรือคี่ |
+|pf    | parity flag |  even      | odd          | เช็ค8บิต ว่าเลข1มีจำนวนคู่หรือคี่ |
 |zf    | zero flag   |  zero      | non zero     |  ถ้าคำตอบเป็น 0 zf = 1 คำตอบไม่ใช่0 zf = 0 |     
 |sf    | sign flag   |  negative  | positive     |  ถ้าเป็นลบ sf = 1 ถ้าบวก sf = 0 |    
 |of    | overflow flag    |  overflow  | not overflow |  ใช้กับ signed |  

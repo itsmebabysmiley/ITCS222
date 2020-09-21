@@ -39,13 +39,14 @@ AL  CL  DL  BL  SPL BPL SIL DIL >>8 bits
 |มีเครื่องหมาย|ไม่มีเครื่องหมาย|
 ***
 ## Common flags
-|flags |     name    |    1       |   0          |
-|------|:-----------:|:----------:|:------------:|
-|cf    | carry flag  |  carry     | no carry     |
-|pf    | parity flag |  even      | odd          |
-|zf    | zero flag   |  zero      | non zero     |     
-|sf    | sign flag   |  negative  | positive     |     
-|of    | overflow    |  overflow  | not overflow |         
+|flags |     name    |    1       |   0          |    แปล      |
+|------|:-----------:|:----------:|:------------:|:-----------:|
+|cf    | carry flag  |  carry     | no carry     |  ใช้กับ unsigned |
+|pf    | parity flag |  even      | odd          | เช็ค4ตัวสุดท้าย ว่าเลข1มีจำนวนคู่หรือคี่ |
+|zf    | zero flag   |  zero      | non zero     |  ถ้าคำตอบเป็น 0 zf = 1 คำตอบไม่ใช่0 zf = 0 |     
+|sf    | sign flag   |  negative  | positive     |  ถ้าเป็นลบ sf = 1 ถ้าบวก sf = 0 |    
+|of    | overflow flag    |  overflow  | not overflow |  ใช้กับ signed |  
+|af    | auxilary flag | cf=1 | cf= 0| ดูจาก4ตัวหลังถ้าบวกกันแ้วcf af=1 |
 ***
 ## Common command
 ### 1. mov  

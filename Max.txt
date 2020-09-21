@@ -1,0 +1,31 @@
+c file
+
+#include <stdio.h>
+
+int main(){
+    int input_1;
+    int input_2;
+    int input_3;
+    int max = 0;
+    printf("Enter 1st number: ");
+    scanf("%d", &input_1);
+    printf("Enter 2nd number: ");
+    scanf("%d", &input_2);
+    printf("Enter 3th number: ");
+    scanf("%d", &input_3);
+    
+    if(input_1 > input_2){
+        if(input_1>input_3){
+            max = input_1;
+        }
+    }else{
+        if(input_2>input_3){
+            max = input_2;
+        }else{
+            max = input_3;
+        }
+    }
+    printf("The max is: %d",max);
+
+    return 0;
+}

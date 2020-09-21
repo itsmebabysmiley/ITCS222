@@ -3,6 +3,7 @@
 ref:
 * http://pacman128.github.io/pcasm/  
 * https://cs.lmu.edu/~ray/notes/nasmtutorial/  
+* https://www.nasm.us/xdoc/2.11.02/html/nasmdoc3.html#section-3.2
 * https://www.csie.ntu.edu.tw/~acpang/course/asm_2004/slides/chapt_07_PartIISolve.pdf
 ***
 ### You can download pcasm with example code and book by Paul Carter.[click](http://pacman128.github.io/pcasm/)

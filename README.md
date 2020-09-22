@@ -100,6 +100,7 @@ ex.
   |  8  |   AL  |     AX|
   |  16 |   AX  |    DX:AX   |
   |  32 |   EAX |    EDX:EAX |
+  
    ex. 2*3
    ```
       mov al,2
